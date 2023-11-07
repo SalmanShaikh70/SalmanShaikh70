@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./component/head',{data:{title:'index page'}}); %>
+</head>
+<body>
+    <div class="container pt-5">
+        <div class="row" id="first-div">
+            <div class="offset-sm-3 col-sm-6">
+                <form action="/register" method="post">
+                    <input type="text" name="username" placeholder="Enter your name" required><br><br>
+                    <input type="email" name="email" placeholder="Enter your Email" required><br><br>
+                    <input type="text" name="phone" placeholder="Enter your contact" required><br><br>
+                    <input type="password" name="password" placeholder="Enter your Password" id="reg-pwd"required><br><br>
+                    <input type="checkbox" onclick="showPassword()"> Show Password
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+        <div class="row" id="second-div">
+            <div class="offset-sm-3 col-sm-6">
+                <form action="/login" method="post">
+                    <input type="text" name="email" placeholder="Enter your Email"><br><br>
+                    <input type="password" name="password" placeholder="Enter your password" id="log-pwd" required><br><br>
+                    <input type="checkbox" onclick="showPassword()" > Show Password
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center pt-5">
+                <button class="btn  btn-primary" id="register">
+                    Register
+                </button>
+                <button class="btn btn-primary" id="login">
+                    Login
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <%- include("./component/footer") %>
+    
+    <script src="/js/reglog.js"></script>
+
+    <script>
+        function showPassword(){
+            let x = document.getElementById("reg-pwd")
+            let y = document.getElementById("log-pwd")
+
+            if(x.type === "password" || y.type === "password"){
+                x.type = "text"
+                y.type = "text"
+            }else{
+                x.type = "password"
+                y.type = "password"
+            }
+        }
+    </script>
+</body>
+</html>
