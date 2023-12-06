@@ -1,4 +1,5 @@
-let {sequelizeCon,Model,DataTypes} = require("../init/dbconfig")
+let {sequelizeCon,Model,DataTypes, Op} = require("../init/dbconfig")
+
 class Product extends Model{}
 Product.init({
     id : {
@@ -29,6 +30,7 @@ Product.init({
         allowNull : false,
         defaultValue : false
     }
+
 },{
     tableName : "product",
     modelName : "Product",
