@@ -5,6 +5,7 @@ let product = require("./controller/product")
 let auth = require("./controller/authController")
 let authMid = require("./middleware/authMiddleware")
 let dashboard = require("./controller/dashboard")
+let category = require("./controller/category")
 
 // user auth routes
 routes.get('/',auth.index);
@@ -27,5 +28,15 @@ routes.post("/product/restore/:id",authMid.auth('product_restore'),product.pRest
 //mailer routes
 routes.get("/forget",auth.forgetPassUi)
 routes.post("/forget",auth.forgetPass)
+
+// category routes
+routes.get("/category/create",authMid.auth("category_create"),category.createUi)
+routes.post("/category/create",authMid.auth("category_create"),category.create)
+routes.get("/category",authMid.auth("category_view"),category.viewAll)
+routes.get("/category/:id",authMid.auth("category_view"),category.viewDetail)
+routes.get("/category/update/:id",authMid.auth("category_update"),category.updateUI)
+routes.post("/category/:id",authMid.auth("category_update"),category.update)
+routes.post("/category/delete/:id",authMid.auth("category_delete"),category.cDelete)
+routes.post("/category/restore/:id",authMid.auth("category_restore"),category.cRestore)
 
 module.exports = {routes}

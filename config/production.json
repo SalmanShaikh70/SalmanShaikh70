@@ -1,5 +1,5 @@
 {
     "url" : "ecom.com",
     "Mysql" : "Mysql://root:123@",
-    "port":"3002"
+    "port":"3001"
 }

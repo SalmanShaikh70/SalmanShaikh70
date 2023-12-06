@@ -24,12 +24,9 @@ async function viewAll(request,response){
     let products = await product.viewAll(request.query,request.userData.permissions).catch((err)=>{
         return {error : err}
     }) 
-    
-    console.log("view",products.error);
     if(!products || (products && products.error)){
         return response.render("product/view",{error : products.error})
     }
-    console.log("produc",products)
     return response.render("product/view",{product : products.data, total : products.total, page : products.page, limit : products.limit,permissions: request.userData.permissions})
 }
 

@@ -9,7 +9,7 @@ function auth(permission){
         }
         let decrypt = await security.decrypt(token,"!#$98@").catch((err)=>{
             return {error : err} 
-        })
+        })  
         if(!decrypt || (decrypt && decrypt.error)){
             console.log(decrypt.error)
             return response.redirect("/login?msg=unauthorized")
@@ -36,6 +36,7 @@ function auth(permission){
         if(permissions.length <= 0 || !permissions[permission]){
             return response.redirect("/login?msg= Not authorized")
         }
+        
         request.userData = {
             name : user[0].name,
             id : user[0].id,

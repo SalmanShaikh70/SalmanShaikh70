@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../component/head",{data:{title:'Category Page'}}) %>
+</head>
+<body>
+    <%- include("../component/menu") %>
+    <div class="container pt-5">
+        <div class="row">
+            <h3>Category</h3>
+            <form action="/category/create" method="post">
+            <input type="text" name="name" placeholder="Enter your Category" required>
+            <input type="submit">
+            </form>
+        </div>
+    </div>
+  
+    <%- include("../component/footer") %>
+</body>
+</html>
